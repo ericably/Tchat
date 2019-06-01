@@ -34,25 +34,12 @@ abstract class Model
         $req->closeCursor();
     }
 
-//    public function insert($table, $data)
-//    {
-//        $string = "INSERT INTO ".$table." (";
-//        $string .= implode(",", array_keys($data)) . ') VALUES  (';
-//        $string .= "'" . implode("','", array_values($data)) . "')";
-//
-//        if (mysqli_query($this->getBdd(), $string))
-//        {
-//            return true;
-//        }
-//        else{
-//            echo mysqli_error($this->getBdd());
-//        }
-//
-//
-//    }
     public function insert($name, $message) {
-        $sql = 'insert into tchat(pseudo, message)' . ' VALUES (?, ?)';
-        $this->executerRequete($sql, array($name, $message));
+        $bdd = $this->getBdd();
+
+        $insertmsg = $bdd->prepare('INSERT INTO tchat(pseudo, message) VALUES (?, ?)');
+        $insertmsg->execute(array($name, $message));
+
     }
 
 }

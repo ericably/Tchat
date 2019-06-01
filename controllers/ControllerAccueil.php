@@ -23,9 +23,21 @@ class ControllerAccueil
 
     public function insertTchat($name, $message)
     {
-        //tchater
         $this->_tchatManager = new TchatManager();
-        $this->_tchatManager->tchater($name, $message);
+
+        $action=$_POST['submit'];
+        if ($action=='submit')
+        {
+            $name= htmlspecialchars($_POST['name']);
+            $message = htmlspecialchars($_POST['message']);
+
+            $this->_tchatManager->tchater($name, $message);
+
+        }
+
+        //tchater
+//        $this->_tchatManager = new TchatManager();
+//        $this->_tchatManager->tchater($name, $message);
 
         require_once ('views/viewAccueil.php');
     }

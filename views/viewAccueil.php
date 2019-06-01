@@ -1,9 +1,6 @@
 <?php
     require 'models/From.php';
 
-//    $envoi = new TchatManager();
-//    $var = $envoi->insert('cheri', 'je suis deçu');
-
     $form = new From($_POST);
 
 ?>
@@ -23,14 +20,3 @@ foreach($tchats as $tchat): ?>
     <?= $tchat->getMessage() ?><br>
 
 <?php endforeach; ?>
-
-<!--{#<html>#}-->
-<!--    {#<head>#}-->
-<!--        {#<title>Page d'accueil</title>#}-->
-<!--        {#<meta charset="utf-8">#}-->
-<!--        {#{% for tchat in tchats %}#}-->
-<!--            {#{{ tchat }}#}-->
-<!--        {#{% endfor %}#}-->
-<!---->
-<!--    {#</head>#}-->
-<!--{#</html>#}-->
